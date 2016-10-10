@@ -176,6 +176,24 @@ function update(elapsedTime) {
   // check for ball collisions
   // TODO: Check for ball collisions
   // TODO: Process ball collisions
+  balls.sort(function(a,b){return b.x - a.x});
+  var active = [];
+  var potentiallyColliding = [];
+  balls.forEach(function(ball){
+    // remove balls we've passed
+    active = active.filter(function(oball) {
+        return oball.position.x >= ball.position.x - 30;
+    });
+    active.forEach(function(oball){
+      potentiallyColliding.push({a: oball, b: ball});
+    });
+    active.push(ball);
+  });
+
+  var collisions = [];
+  potentiallyColliding.forEach(function(pair){
+    if(a.position.x)
+  });
 }
 
 /**
